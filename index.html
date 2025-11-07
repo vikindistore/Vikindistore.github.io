@@ -14,6 +14,15 @@
             font-family: 'Arial', sans-serif;
         }
 
+        :root {
+            --primary-color: #0d47a1;
+            --primary-accent: #1565c0;
+            --primary-color-strong: rgba(13, 71, 161, 0.85);
+            --primary-color-light: rgba(13, 71, 161, 0.08);
+            --primary-color-soft: rgba(13, 71, 161, 0.12);
+            --primary-color-glow: rgba(13, 71, 161, 0.35);
+        }
+
         body {
             background: #fff;
             color: #333;
@@ -78,7 +87,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(139,69,19,0.85);
+            background: var(--primary-color-strong);
             color: #fff;
             border: none;
             width: 38px;
@@ -129,7 +138,7 @@
         }
 
         .price .current-price {
-            color: #8b4513;
+            color: var(--primary-color);
             font-size: 1.4rem;
         }
 
@@ -143,11 +152,11 @@
             display: inline-block;
             margin-top: 12px;
             padding: 10px 14px;
-            border: 2px dashed #8b4513;
+            border: 2px dashed var(--primary-color);
             border-radius: 8px;
-            color: #8b4513;
+            color: var(--primary-color);
             font-weight: 600;
-            background: rgba(139,69,19,0.08);
+            background: var(--primary-color-light);
         }
 
         /* Tabs */
@@ -168,8 +177,8 @@
         }
 
         .tab.active {
-            border-bottom: 2px solid #8b4513;
-            color: #8b4513;
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
         }
 
         /* Tab Content */
@@ -195,7 +204,7 @@
 
         .tab-title {
             font-size: 1.2rem;
-            color: #8b4513;
+            color: var(--primary-color);
             margin-bottom: 10px;
         }
 
@@ -214,15 +223,7 @@
             border-radius: 10px;
         }
 
-        /* Cart Section */
-        .cart-section {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-
+        /* Order controls, delivery, summary */
         .quantity {
             display: flex;
             justify-content: center;
@@ -271,7 +272,7 @@
         .delivery-options h4 {
             margin-bottom: 12px;
             font-size: 1.05rem;
-            color: #8b4513;
+            color: var(--primary-color);
         }
 
         .delivery-option {
@@ -279,7 +280,7 @@
             align-items: center;
             gap: 10px;
             margin: 10px 0;
-            background: rgba(139,69,19,0.06);
+            background: rgba(13,71,161,0.06);
             padding: 10px 12px;
             border-radius: 8px;
         }
@@ -290,10 +291,20 @@
             font-weight: 600;
         }
 
+        .order-summary {
+            background: #fff;
+            border: 1px solid var(--primary-color-light);
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.12);
+            margin-top: 10px;
+        }
+
         .promo-wrapper {
             display: flex;
             gap: 10px;
             margin-top: 16px;
+            margin-bottom: 16px;
         }
 
         .promo-wrapper input,
@@ -308,12 +319,21 @@
 
         .promo-wrapper button {
             flex: 0 0 120px;
-            background: #8b4513;
+            background: var(--primary-color);
             color: #fff;
             border: none;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
+        }
+
+        .delivery-note {
+            margin-top: 6px;
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            background: var(--primary-color-light);
+            padding: 10px 12px;
+            border-radius: 8px;
         }
 
         /* Order Form */
@@ -328,7 +348,7 @@
         .order-form h2 {
             font-size: 1.2rem;
             margin-bottom: 18px;
-            color: #8b4513;
+            color: var(--primary-color);
         }
 
         .form-group {
@@ -347,7 +367,7 @@
 
         .order-form button.btn-commander {
             width: 100%;
-            background: #8b4513;
+            background: var(--primary-color);
             color: #fff;
             padding: 14px;
             text-align: center;
@@ -357,6 +377,7 @@
             border: none;
             font-size: 1.05rem;
             transition: transform 0.2s ease;
+            box-shadow: 0 8px 18px var(--primary-color-soft);
         }
 
         .order-form button.btn-commander:hover {
@@ -370,7 +391,7 @@
 
         .product-highlights h2 {
             text-align: center;
-            color: #8b4513;
+            color: var(--primary-color);
             margin-bottom: 20px;
             font-size: 1.4rem;
         }
@@ -382,11 +403,11 @@
         }
 
         .product-card {
-            background: #fffdfa;
+            background: #f8faff;
             border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 8px 18px rgba(139,69,19,0.12);
-            border: 1px solid rgba(139,69,19,0.12);
+            box-shadow: 0 8px 18px var(--primary-color-soft);
+            border: 1px solid var(--primary-color-light);
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -397,11 +418,11 @@
             width: 100%;
             border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 6px 16px rgba(139, 69, 19, 0.18);
+            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.18);
         }
 
         .product-card h3 {
-            color: #8b4513;
+            color: var(--primary-color);
             margin-bottom: 8px;
             font-size: 1.1rem;
         }
@@ -412,7 +433,7 @@
 
         /* Avis Clients */
         .reviews-section {
-            background: #fff9f5;
+            background: #f2f6ff;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
@@ -423,7 +444,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            color: #8b4513;
+            color: var(--primary-color);
             margin-bottom: 10px;
             font-weight: bold;
         }
@@ -434,7 +455,7 @@
             overflow-x: auto;
             padding-bottom: 10px;
             scrollbar-width: thin;
-            scrollbar-color: #8b4513 #f0e6dd;
+            scrollbar-color: var(--primary-color) #e2e9ff;
         }
 
         .reviews-carousel::-webkit-scrollbar {
@@ -442,11 +463,11 @@
         }
 
         .reviews-carousel::-webkit-scrollbar-track {
-            background: #f0e6dd;
+            background: #e2e9ff;
         }
 
         .reviews-carousel::-webkit-scrollbar-thumb {
-            background: #8b4513;
+            background: var(--primary-color);
             border-radius: 3px;
         }
 
@@ -466,12 +487,12 @@
         .review-card .author {
             font-weight: bold;
             margin-top: 10px;
-            color: #8b4513;
+            color: var(--primary-color);
         }
 
         /* Contact Section */
         .contact-section {
-            background: #f9f5f0;
+            background: #eef3ff;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
@@ -479,7 +500,7 @@
         }
 
         .contact-section h3 {
-            color: #8b4513;
+            color: var(--primary-color);
             margin-bottom: 10px;
         }
 
@@ -491,7 +512,7 @@
         }
 
         .contact-links a {
-            color: #8b4513;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
         }
@@ -530,13 +551,13 @@
 
         .footer-wave::before {
             opacity: 0.55;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%23a46333' d='M0,50 C180,90 360,20 540,55 C720,90 900,20 1080,55 C1260,90 1440,40 1440,40 L1440,120 L0,120 Z'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%231565c0' d='M0,50 C180,90 360,20 540,55 C720,90 900,20 1080,55 C1260,90 1440,40 1440,40 L1440,120 L0,120 Z'/></svg>");
         }
 
         .footer-wave::after {
             opacity: 0.35;
             background-size: 40% 100%;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%238b4513' d='M0,70 C200,110 360,40 540,75 C720,110 950,40 1130,80 C1310,120 1440,60 1440,60 L1440,120 L0,120 Z'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%230d47a1' d='M0,70 C200,110 360,40 540,75 C720,110 950,40 1130,80 C1310,120 1440,60 1440,60 L1440,120 L0,120 Z'/></svg>");
             animation-duration: 18s;
             animation-direction: reverse;
         }
@@ -547,7 +568,7 @@
         }
 
         .footer-background {
-            background: linear-gradient(120deg, #8b4513, #a0522d, #8b4513);
+            background: linear-gradient(120deg, #0d47a1, #1565c0, #0d47a1);
             background-size: 400% 400%;
             animation: footerGlow 12s ease infinite;
             padding: 40px 20px 30px;
@@ -575,7 +596,7 @@
         }
 
         .footer-links a, .footer-contact a {
-            color: #ffe6cc;
+            color: #d6e3ff;
             text-decoration: none;
             margin: 0 10px;
         }
@@ -596,7 +617,7 @@
             bottom: 18px;
             right: 18px;
             left: 18px;
-            background: #8b4513;
+            background: var(--primary-color);
             color: #fff;
             border: none;
             border-radius: 40px;
@@ -604,7 +625,7 @@
             font-size: 1.05rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 10px 25px rgba(139,69,19,0.35);
+            box-shadow: 0 10px 25px var(--primary-color-glow);
             z-index: 98;
             cursor: pointer;
         }
@@ -695,7 +716,7 @@
                     <img src="https://i.ibb.co/tMdzprcC/IMG-20251107-WA0002.jpg" alt="PowerGirl Pack Vue 14">
                 </div>
                 <div class="slide">
-                    <img src="https://i.ibb.co/9mCMVkpk/corde-a-sauter-reglable-corde-a-sauter-sans-enchev.webp" alt="PowerGirl Pack Vue 14">
+                    <img src="https://i.ibb.co/9mCMVkpk/corde-a-sauter-reglable-corde-a-sauter-sans-enchev.webp" alt="PowerGirl Pack Vue 15">
                 </div>
             </div>
             <button class="carousel-btn next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
@@ -720,7 +741,6 @@
 
     <!-- Story Section -->
     <section class="elegant-section container">
-        <img src="https://via.placeholder.com/300x200?text=Pack+Sportif+PowerGirl" alt="Pack sportif PowerGirl">
         <h2>Prête à booster chaque séance, à la maison comme en studio.</h2>
         <p>Le PowerGirl Pack te donne les outils pour dépasser tes limites : bandes de résistance renforcées, tapis anti-dérapant, gourde isotherme, guide numérique et playlists exclusives. Tout tient dans un sac stylé pour partir en mission fitness à tout moment.</p>
     </section>
@@ -734,64 +754,35 @@
 
     <!-- Tab Contents -->
     <div id="livraison" class="tab-content active container">
-        <img src="https://via.placeholder.com/300x400?text=Livraison+Express" alt="Livraison">
+        <img src="https://i.ibb.co/ccnS28Sv/Photo-Room-20251107-171222.png" alt="Livraison">
         <h2 class="tab-title">Livraison rapide & suivie</h2>
-        <p>Après ta commande, notre équipe te contacte pour confirmation. L'envoi part le jour même avec Yallidine, livraison sous 24 à 48h partout en Algérie.</p>
-        <p>+ Emballage sécurisé ○ Service client PowerGirl</p>
+        <p>Après ta commande, notre équipe te contacte pour confirmation. L'envoi part le jour même avec World Express, livraison sous 24 à 48h partout en Algérie.</p>
+        <p>+ Emballage sécurisé ○ Tracking World Express ○ Service client PowerGirl</p>
     </div>
 
     <div id="echange" class="tab-content container">
-        <img src="https://via.placeholder.com/300x400?text=Echange+Smart" alt="Échange">
+        <img src="https://i.ibb.co/jvwvSsHJ/Retrait-sur-arlon.png" alt="Échange">
         <h2 class="tab-title">Échange simplifié</h2>
         <p>Un accessoire à remplacer ? Contacte-nous via Instagram, Facebook ou téléphone. Les frais de retour sont de 400 DA, gratuits si l’erreur vient de nous.</p>
     </div>
 
     <div id="remboursement" class="tab-content container">
-        <img src="https://via.placeholder.com/300x400?text=Remboursement+Assuré" alt="Remboursement">
+        <img src="https://i.ibb.co/S7tYt5n6/21-min.jpg" alt="Remboursement">
         <h2 class="tab-title">Politique de remboursement</h2>
-        <p>Pack pas en phase avec toi ? Lance le remboursement en nous contactant. Retourne les produits à l'adresse : 78 rue Benchaoune, Rouiba, Alger via Yallidine.</p>
+        <p>Pack endommagé ou incomplet ? Lance le remboursement en nous contactant. Retourne les produits à l'adresse : boulevard amyoud, nouvelle ville, Tizi ouzou</p>
     </div>
 
-    <!-- Cart Section -->
-    <section class="cart-section container">
+    <!-- Order Form -->
+    <section class="order-form container" id="order-form">
+        <h2>Finalise ta commande</h2>
+
         <div class="quantity">
             <label for="qty">Quantité</label>
             <button id="minus">-</button>
             <input type="number" id="qty" value="1" min="1">
             <button id="plus">+</button>
         </div>
-        <div class="cart-line">
-            <span>Sous-total</span>
-            <span id="subtotal">DA 8,500.00</span>
-        </div>
-        <div class="cart-line">
-            <span>Livraison</span>
-            <span id="livraison-price">DA 400.00</span>
-        </div>
-        <div class="cart-line">
-            <span>Total</span>
-            <span id="total">DA 8,900.00</span>
-        </div>
-        <div class="delivery-options">
-            <h4>Mode de livraison</h4>
-            <div class="delivery-option">
-                <input type="radio" id="delivery-desk" name="delivery" value="desk" checked>
-                <label for="delivery-desk">Livraison Stop Desk — <span id="delivery-desk-price">DA 400.00</span></label>
-            </div>
-            <div class="delivery-option">
-                <input type="radio" id="delivery-home" name="delivery" value="domicile">
-                <label for="delivery-home">Livraison à domicile — <span id="delivery-home-price">DA 600.00</span></label>
-            </div>
-        </div>
-        <div class="promo-wrapper">
-            <input type="text" placeholder="Code promo">
-            <button class="btn-appliquer">Appliquer</button>
-        </div>
-    </section>
 
-    <!-- Order Form -->
-    <section class="order-form container" id="order-form">
-        <h2>Finalise ta commande</h2>
         <div class="form-group">
             <label for="full-name">الاسم الكامل <span class="required">*</span></label>
             <input type="text" id="full-name" placeholder="الاسم الكامل" required>
@@ -868,6 +859,41 @@
             <label for="address">L'adresse | العنوان <span class="required">*</span></label>
             <input type="text" id="address" placeholder="L'adresse | العنوان" required>
         </div>
+
+        <div class="delivery-options">
+            <h4>Mode de livraison World Express</h4>
+            <div class="delivery-option">
+                <input type="radio" id="delivery-desk" name="delivery" value="desk" checked>
+                <label for="delivery-desk">World Express Point Relais — <span id="delivery-desk-price">DA 400.00</span></label>
+            </div>
+            <div class="delivery-option">
+                <input type="radio" id="delivery-home" name="delivery" value="domicile">
+                <label for="delivery-home">World Express à domicile — <span id="delivery-home-price">DA 600.00</span></label>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <div class="cart-line">
+                <span>Sous-total</span>
+                <span id="subtotal">DA 8,500.00</span>
+            </div>
+            <div class="cart-line">
+                <span>Livraison</span>
+                <span id="livraison-price">DA 400.00</span>
+            </div>
+            <div class="cart-line">
+                <span>Total</span>
+                <span id="total">DA 8,900.00</span>
+            </div>
+        </div>
+
+        <div class="promo-wrapper">
+            <input type="text" placeholder="Code promo">
+            <button class="btn-appliquer" type="button">Appliquer</button>
+        </div>
+
+        <p class="delivery-note">Le total est mis à jour automatiquement selon ton mode de livraison World Express.</p>
+
         <button class="btn-commander" type="button">Commander</button>
     </section>
 
@@ -879,9 +905,7 @@
                 <img src="https://i.ibb.co/B266JKrk/Whats-App-Image-2024-03-17-at-113422jpeg-1710775965.jpg" alt="Bandes de résistance">
                 <h3>Bandes de résistance en latex – fitness, yoga et musculation</h3>
                 <p>Fabriqué en <strong>latex naturel</strong>, non toxique et sans goût. Idéal pour le fitness, le yoga, le pilates, la perte de poids et la musculation.</p>
-
                 <p><strong>Matière :</strong> Latex</p>
-
                 <p><strong>Couleur et taille :</strong></p>
                 <p>• Vert : 600 x 50 x 0,35 mm</p>
                 <p>• Bleu : 600 x 50 x 0,5 mm</p>
@@ -893,26 +917,22 @@
                 <img src="https://i.ibb.co/gLPsFkD9/568820419-800093249298969-7503016383466082852-n.jpg" alt="Tapis antidérapant">
                 <h3>Tapis de sport et de yoga 6mm– confort, stabilité et durabilité</h3>
                 <p>Pratique et polyvalent, ce tapis de sport SM Sport est idéal pour le yoga, le fitness, le stretching ou les exercices à la maison. Conçu en mousse antidérapante de haute qualité, il assure une excellente adhérence, un confort optimal et une stabilité parfaite sur tous types de sols.</p>
-
                 <p>🧘 <strong>Caractéristiques :</strong></p>
-
                 <p>• <strong>Dimensions :</strong> 173 cm x 61 cm</p>
                 <p>• <strong>Épaisseur :</strong> 6 mm pour un bon amorti des articulations</p>
                 <p>• <strong>Surface antidérapante :</strong> empêche le glissement pendant l’entraînement</p>
                 <p>• <strong>Léger et compact :</strong> facile à transporter et à ranger</p>
                 <p>• <strong>Matériau durable :</strong> résistant à l’humidité et facile à nettoyer</p>
-
                 <p>👉 <strong>Parfait pour vos séances de yoga, pilates, fitness, renforcement musculaire ou relaxation.</strong></p>
             </article>
             <article class="product-card">
                 <img src="https://static.tildacdn.com/tild6461-6366-4464-b361-653933303937/1000106931.png" alt="Gourde isotherme">
                 <h3>Bouteille Isotherme HopnHoppers (600 ml) – élégance, durabilité et performance</h3>
                 <p>Conçue en <strong>acier inoxydable de haute qualité</strong>, cette bouteille isotherme maintient vos boissons <strong>chaudes jusqu’à 12 heures</strong> et <strong>fraîches jusqu’à 24 heures</strong>.</p>
-
                 <p>Son <strong>design élégant, étanche et durable</strong> en fait le compagnon idéal pour le travail, le sport ou les déplacements quotidiens.</p>
             </article>
             <article class="product-card">
-                <img src="https://i.ibb.co/d0GTPW7Q/17-1536x1536.jpg" alt="Guide d’entraînement">
+                <img src="https://i.ibb.co/d0GTPW7Q/17-1536x1536.jpg" alt="Serviette microfibre">
                 <h3>Serviette en microfibre – performance et praticité</h3>
                 <p>• <strong>Légère et compacte :</strong> facile à transporter dans tout sac de sport ou de voyage.</p>
                 <p>• <strong>Haute absorption :</strong> sèche efficacement sans besoin de frotter.</p>
@@ -921,16 +941,14 @@
                 <p>• <strong>Idéale pour sportifs et voyageurs :</strong> allie confort, efficacité et durabilité.</p>
             </article>
             <article class="product-card">
-                <img src="https://i.ibb.co/9mCMVkpk/corde-a-sauter-reglable-corde-a-sauter-sans-enchev.webp" alt="Playlists exclusives">
+                <img src="https://i.ibb.co/9mCMVkpk/corde-a-sauter-reglable-corde-a-sauter-sans-enchev.webp" alt="Corde à sauter">
                 <h3>Corde à sauter professionnelle – performance, confort et durabilité</h3>
                 <p>Fabriquée en <strong>PVC renforcé avec fil d’acier</strong>, cette corde à sauter est équipée de <strong>poignées ergonomiques en éponge EVA</strong> pour une prise en main confortable.</p>
-
                 <p>Rotation fluide à <strong>360°</strong>, <strong>longueur réglable (280 cm)</strong>, légère et durable.</p>
-
                 <p><strong>Idéale pour :</strong> le fitness, la boxe, le cardio et la perte de poids.</p>
             </article>
             <article class="product-card">
-                <img src="https://i.ibb.co/W4wnT6Rx/717i-JLQIDr-L-AC-SX679.jpg" alt="Sac PowerGirl">
+                <img src="https://i.ibb.co/W4wnT6Rx/717i-JLQIDr-L-AC-SX679.jpg" alt="Haltères néoprène">
                 <h3>Haltères en néoprène</h3>
                 <p>Haltères en néoprène de 1 kg chacune (2 kg au total), au design ergonomique et antidérapant.
 Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier les muscles et s’entraîner partout, à la maison comme en déplacement.</p>
@@ -978,8 +996,8 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         <h3>Nous contacter</h3>
         <p>Besoin d'un boost ou d'un conseil ? On est là pour toi.</p>
         <div class="contact-links">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/share/1Gu2FPRHZK/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/vikindi00?igsh=MWE4MTQ5Z3czczM3NA==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
         </div>
     </section>
 
@@ -988,10 +1006,10 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         <div class="footer-wave"></div>
         <div class="footer-background">
             <div class="footer-content">
-                <h4>PowerGirl</h4>
+                <h4>Vikindi Store</h4>
                 <div class="footer-contact">
-                    <p>Email : <a href="mailto:contact@powergirl.dz">contact@powergirl.dz</a></p>
-                    <p>Téléphone : <a href="tel:+213550000000">+213 55 00 00 000</a></p>
+                    <p>Email : <a href="mailto:vikindi.contact@gmail.com">vikindi.contact@gmail.com</a></p>
+                    <p>Téléphone : <a href="tel:+213552321973">+213 552 32 19 73</a></p>
                 </div>
                 <div class="footer-links">
                     <a href="#">Confidentialité</a>
@@ -999,7 +1017,7 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
                     <a href="#">FAQ</a>
                 </div>
                 <div class="footer-bottom">
-                    © 2025 PowerGirl Pack. Tous droits réservés.
+                    © 2025 Vikindi Store. Tous droits réservés.
                 </div>
             </div>
         </div>
@@ -1056,8 +1074,8 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
             isDragging = false;
         });
 
-        // Tarifs par wilaya (à adapter si besoin)
-        const deliveryTariffs = {
+        // Tarifs World Express par wilaya
+        const worldExpressTariffs = {
             "Adrar": { desk: 800, home: 1100 },
             "Chlef": { desk: 360, home: 580 },
             "Laghouat": { desk: 520, home: 740 },
@@ -1134,8 +1152,8 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
 
         function getCurrentDeliveryPrices() {
             const selectedWilaya = wilayaSelect.value;
-            if (deliveryTariffs[selectedWilaya]) {
-                return deliveryTariffs[selectedWilaya];
+            if (worldExpressTariffs[selectedWilaya]) {
+                return worldExpressTariffs[selectedWilaya];
             }
             return { desk: 400, home: 600 };
         }
@@ -1180,7 +1198,7 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
 
         // Boutons Commander
         document.querySelector('.order-form .btn-commander').addEventListener('click', () => {
-            alert('Commande confirmée ! Une héroïne PowerGirl te contactera très vite.');
+            alert('Commande confirmée ! Notre équipe PowerGirl coordonne l’expédition World Express et te contacte très vite.');
         });
 
         document.querySelector('.floating-order-btn').addEventListener('click', () => {
@@ -1192,4 +1210,4 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         updateTotal();
     </script>
 </body>
-  </html>
+                    </html>
