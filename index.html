@@ -208,21 +208,6 @@
             margin-bottom: 10px;
         }
 
-        /* Story Section */
-        .elegant-section {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .elegant-section img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
         /* Order controls, delivery, summary */
         .quantity {
             display: flex;
@@ -739,61 +724,36 @@
         <p style="margin-top: 15px;">Pack complet d'entraînement – Accessoires premium – Livraison 24-72h – Paiement à la livraison</p>
     </section>
 
-    <!-- Story Section -->
-    <section class="elegant-section container">
-        <h2>Prête à booster chaque séance, à la maison comme en studio.</h2>
-        <p>Le PowerGirl Pack te donne les outils pour dépasser tes limites : bandes de résistance renforcées, tapis anti-dérapant, gourde isotherme, guide numérique et playlists exclusives. Tout tient dans un sac stylé pour partir en mission fitness à tout moment.</p>
-    </section>
-
-    <!-- Tabs -->
-    <div class="tabs container">
-        <div class="tab active" data-tab="livraison">Livraison</div>
-        <div class="tab" data-tab="echange">Échange</div>
-        <div class="tab" data-tab="remboursement">Remboursement</div>
-    </div>
-
-    <!-- Tab Contents -->
-    <div id="livraison" class="tab-content active container">
-        <img src="https://i.ibb.co/ccnS28Sv/Photo-Room-20251107-171222.png" alt="Livraison">
-        <h2 class="tab-title">Livraison rapide & suivie</h2>
-        <p>Après ta commande, notre équipe te contacte pour confirmation. L'envoi part le jour même avec World Express, livraison sous 24 à 48h partout en Algérie.</p>
-        <p>+ Emballage sécurisé ○ Tracking World Express ○ Service client PowerGirl</p>
-    </div>
-
-    <div id="echange" class="tab-content container">
-        <img src="https://i.ibb.co/jvwvSsHJ/Retrait-sur-arlon.png" alt="Échange">
-        <h2 class="tab-title">Échange simplifié</h2>
-        <p>Un accessoire à remplacer ? Contacte-nous via Instagram, Facebook ou téléphone. Les frais de retour sont de 400 DA, gratuits si l’erreur vient de nous.</p>
-    </div>
-
-    <div id="remboursement" class="tab-content container">
-        <img src="https://i.ibb.co/S7tYt5n6/21-min.jpg" alt="Remboursement">
-        <h2 class="tab-title">Politique de remboursement</h2>
-        <p>Pack endommagé ou incomplet ? Lance le remboursement en nous contactant. Retourne les produits à l'adresse : boulevard amyoud, nouvelle ville, Tizi ouzou</p>
-    </div>
-
     <!-- Order Form -->
-    <section class="order-form container" id="order-form">
+    <form class="order-form container" id="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="42b8c0c1-427b-4fdc-b7ca-4909a83f41ca">
+        <input type="hidden" name="subject" value="Nouvelle commande PowerGirl Pack">
+        <input type="hidden" name="product" value="PowerGirl Pack">
+        <input type="hidden" name="delivery_mode_text" id="delivery-mode-text">
+        <input type="hidden" name="subtotal_amount" id="subtotal-input">
+        <input type="hidden" name="delivery_amount" id="delivery-input">
+        <input type="hidden" name="total_amount" id="total-input">
+
         <h2>Finalise ta commande</h2>
 
         <div class="quantity">
             <label for="qty">Quantité</label>
-            <button id="minus">-</button>
-            <input type="number" id="qty" value="1" min="1">
-            <button id="plus">+</button>
+            <button type="button" id="minus">-</button>
+            <input type="number" id="qty" name="quantity" value="1" min="1" required>
+            <button type="button" id="plus">+</button>
         </div>
 
         <div class="form-group">
             <label for="full-name">الاسم الكامل <span class="required">*</span></label>
-            <input type="text" id="full-name" placeholder="الاسم الكامل" required>
+            <input type="text" id="full-name" name="full_name" placeholder="الاسم الكامل" required>
         </div>
         <div class="form-group">
             <label for="phone">Téléphone <span class="required">*</span></label>
-            <input type="tel" id="phone" placeholder="Téléphone" required>
+            <input type="tel" id="phone" name="phone" placeholder="Téléphone" required>
         </div>
         <div class="form-group">
             <label for="wilaya-select">Wilaya الولاية <span class="required">*</span></label>
-            <select id="wilaya-select" required>
+            <select id="wilaya-select" name="wilaya" required>
                 <option value="">Wilaya الولاية</option>
                 <option value="Adrar">Adrar</option>
                 <option value="Chlef">Chlef</option>
@@ -857,18 +817,18 @@
         </div>
         <div class="form-group">
             <label for="address">L'adresse | العنوان <span class="required">*</span></label>
-            <input type="text" id="address" placeholder="L'adresse | العنوان" required>
+            <input type="text" id="address" name="address" placeholder="L'adresse | العنوان" required>
         </div>
 
         <div class="delivery-options">
             <h4>Mode de livraison World Express</h4>
             <div class="delivery-option">
-                <input type="radio" id="delivery-desk" name="delivery" value="desk" checked>
-                <label for="delivery-desk">World Express Point Relais — <span id="delivery-desk-price">DA 400.00</span></label>
+                <input type="radio" id="delivery-desk" name="delivery" value="desk" data-label="وورلد إكسبريس - نقطة استلام" checked>
+                <label for="delivery-desk">وورلد إكسبريس - نقطة استلام — <span id="delivery-desk-price">DA 400.00</span></label>
             </div>
             <div class="delivery-option">
-                <input type="radio" id="delivery-home" name="delivery" value="domicile">
-                <label for="delivery-home">World Express à domicile — <span id="delivery-home-price">DA 600.00</span></label>
+                <input type="radio" id="delivery-home" name="delivery" value="domicile" data-label="وورلد إكسبريس - توصيل إلى المنزل">
+                <label for="delivery-home">وورلد إكسبريس - توصيل إلى المنزل — <span id="delivery-home-price">DA 600.00</span></label>
             </div>
         </div>
 
@@ -888,14 +848,41 @@
         </div>
 
         <div class="promo-wrapper">
-            <input type="text" placeholder="Code promo">
+            <input type="text" name="promo_code" placeholder="Code promo">
             <button class="btn-appliquer" type="button">Appliquer</button>
         </div>
 
         <p class="delivery-note">Le total est mis à jour automatiquement selon ton mode de livraison World Express.</p>
 
-        <button class="btn-commander" type="button">Commander</button>
-    </section>
+        <button class="btn-commander" type="submit">تأكيد الطلب</button>
+    </form>
+
+    <!-- Tabs -->
+    <div class="tabs container">
+        <div class="tab active" data-tab="livraison">Livraison</div>
+        <div class="tab" data-tab="echange">Échange</div>
+        <div class="tab" data-tab="remboursement">Remboursement</div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="livraison" class="tab-content active container">
+        <img src="https://i.ibb.co/ccnS28Sv/Photo-Room-20251107-171222.png" alt="Livraison">
+        <h2 class="tab-title">Livraison rapide & suivie</h2>
+        <p>Après ta commande, notre équipe te contacte pour confirmation. L'envoi part le jour même avec World Express, livraison sous 24 à 48h partout en Algérie.</p>
+        <p>+ Emballage sécurisé ○ Tracking World Express ○ Service client PowerGirl</p>
+    </div>
+
+    <div id="echange" class="tab-content container">
+        <img src="https://i.ibb.co/jvwvSsHJ/Retrait-sur-arlon.png" alt="Échange">
+        <h2 class="tab-title">Échange simplifié</h2>
+        <p>Un accessoire à remplacer ? Contacte-nous via Instagram, Facebook ou téléphone. Les frais de retour sont de 400 DA, gratuits si l’erreur vient de nous.</p>
+    </div>
+
+    <div id="remboursement" class="tab-content container">
+        <img src="https://i.ibb.co/S7tYt5n6/21-min.jpg" alt="Remboursement">
+        <h2 class="tab-title">Politique de remboursement</h2>
+        <p>Pack endommagé ou incomplet ? Lance le remboursement en nous contactant. Retourne les produits à l'adresse : boulevard amyoud, nouvelle ville, Tizi ouzou</p>
+    </div>
 
     <!-- Product Highlights -->
     <section class="product-highlights container">
@@ -975,7 +962,7 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>Coaching digital très motivant. J’adore les playlists offertes !</p>
+                <p>Rapport qualité/prix intéressant pour débuter ou s’entraîner à domicile.</p>
                 <div class="author">— Lina K.</div>
             </div>
             <div class="review-card">
@@ -1023,7 +1010,7 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         </div>
     </footer>
 
-    <button class="floating-order-btn" type="button">Commander maintenant</button>
+    <button class="floating-order-btn" type="button">اطلب الآن</button>
 
     <script>
         // Tab switching
@@ -1076,64 +1063,64 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
 
         // Tarifs World Express par wilaya
         const worldExpressTariffs = {
-            "Adrar": { desk: 800, home: 1100 },
-            "Chlef": { desk: 360, home: 580 },
-            "Laghouat": { desk: 520, home: 740 },
-            "Oum El Bouaghi": { desk: 420, home: 620 },
-            "Batna": { desk: 430, home: 640 },
-            "Béjaïa": { desk: 390, home: 600 },
-            "Biskra": { desk: 500, home: 720 },
-            "Béchar": { desk: 720, home: 980 },
-            "Blida": { desk: 340, home: 520 },
-            "Bouira": { desk: 360, home: 580 },
-            "Tamanrasset": { desk: 900, home: 1200 },
-            "Tébessa": { desk: 480, home: 680 },
-            "Tlemcen": { desk: 420, home: 630 },
-            "Tiaret": { desk: 430, home: 640 },
-            "Tizi Ouzou": { desk: 360, home: 560 },
-            "Alger": { desk: 320, home: 500 },
-            "Djelfa": { desk: 480, home: 700 },
-            "Jijel": { desk: 420, home: 620 },
-            "Sétif": { desk: 410, home: 610 },
-            "Saïda": { desk: 460, home: 660 },
-            "Skikda": { desk: 430, home: 640 },
-            "Sidi Bel Abbès": { desk: 430, home: 640 },
-            "Annaba": { desk: 420, home: 630 },
-            "Guelma": { desk: 420, home: 630 },
-            "Constantine": { desk: 410, home: 610 },
-            "Médéa": { desk: 360, home: 560 },
-            "Mostaganem": { desk: 400, home: 610 },
-            "M'Sila": { desk: 420, home: 620 },
-            "Mascara": { desk: 440, home: 650 },
-            "Ouargla": { desk: 620, home: 860 },
-            "Oran": { desk: 380, home: 580 },
-            "El Bayadh": { desk: 560, home: 780 },
-            "Illizi": { desk: 950, home: 1250 },
-            "Bordj Bou Arréridj": { desk: 380, home: 580 },
-            "Boumerdès": { desk: 340, home: 520 },
-            "El Tarf": { desk: 470, home: 680 },
-            "Tindouf": { desk: 980, home: 1300 },
-            "Tissemsilt": { desk: 420, home: 630 },
-            "El Oued": { desk: 620, home: 900 },
-            "Khenchela": { desk: 470, home: 680 },
-            "Souk Ahras": { desk: 440, home: 650 },
-            "Tipaza": { desk: 340, home: 520 },
-            "Mila": { desk: 430, home: 630 },
-            "Aïn Defla": { desk: 360, home: 560 },
-            "Naâma": { desk: 640, home: 880 },
-            "Aïn Témouchent": { desk: 420, home: 620 },
-            "Ghardaïa": { desk: 600, home: 840 },
-            "Relizane": { desk: 420, home: 620 },
-            "Timimoun": { desk: 780, home: 1040 },
+            "Adrar": { desk: 1100, home: 1400 },
+            "Chlef": { desk: 450, home: 850 },
+            "Laghouat": { desk: 700, home: 1000 },
+            "Oum El Bouaghi": { desk: 500, home: 850 },
+            "Batna": { desk: 500, home: 850 },
+            "Béjaïa": { desk: 500, home: 850 },
+            "Biskra": { desk: 600, home: 950 },
+            "Béchar": { desk: 1100, home: 1400 },
+            "Blida": { desk: 450, home: 850 },
+            "Bouira": { desk: 450, home: 850 },
+            "Tamanrasset": { desk: 1400, home: 1800 },
+            "Tébessa": { desk: 600, home: 950 },
+            "Tlemcen": { desk: 500, home: 850 },
+            "Tiaret": { desk: 500, home: 850 },
+            "Tizi Ouzou": { desk: 400, home: 500 },
+            "Alger": { desk: 450, home: 700 },
+            "Djelfa": { desk: 600, home: 900 },
+            "Jijel": { desk: 500, home: 850 },
+            "Sétif": { desk: 450, home: 850 },
+            "Saïda": { desk: 600, home: 900 },
+            "Skikda": { desk: 500, home: 850 },
+            "Sidi Bel Abbès": { desk: 500, home: 850 },
+            "Annaba": { desk: 500, home: 850 },
+            "Guelma": { desk: 600, home: 900 },
+            "Constantine": { desk: 450, home: 850 },
+            "Médéa": { desk: 450, home: 850 },
+            "Mostaganem": { desk: 500, home: 850 },
+            "M'Sila": { desk: 500, home: 850 },
+            "Mascara": { desk: 600, home: 900 },
+            "Ouargla": { desk: 800, home: 1100 },
+            "Oran": { desk: 450, home: 850 },
+            "El Bayadh": { desk: 800, home: 1100 },
+            "Illizi": { desk: 1700, home: 2000 },
+            "Bordj Bou Arréridj": { desk: 450, home: 850 },
+            "Boumerdès": { desk: 450, home: 800 },
+            "El Tarf": { desk: 600, home: 950 },
+            "Tindouf": { desk: 1400, home: 1800 },
+            "Tissemsilt": { desk: 500, home: 850 },
+            "El Oued": { desk: 800, home: 1100 },
+            "Khenchela": { desk: 600, home: 900 },
+            "Souk Ahras": { desk: 600, home: 900 },
+            "Tipaza": { desk: 450, home: 850 },
+            "Mila": { desk: 500, home: 850 },
+            "Aïn Defla": { desk: 450, home: 850 },
+            "Naâma": { desk: 800, home: 1100 },
+            "Aïn Témouchent": { desk: 600, home: 900 },
+            "Ghardaïa": { desk: 800, home: 1100 },
+            "Relizane": { desk: 500, home: 850 },
+            "Timimoun": { desk: 1100, home: 1400 },
             "Bordj Badji Mokhtar": { desk: 1050, home: 1380 },
-            "Ouled Djellal": { desk: 540, home: 760 },
-            "Béni Abbès": { desk: 820, home: 1080 },
-            "In Salah": { desk: 980, home: 1320 },
-            "In Guezzam": { desk: 1120, home: 1480 },
-            "Touggourt": { desk: 640, home: 880 },
-            "Djanet": { desk: 1180, home: 1550 },
-            "El M'Ghair": { desk: 600, home: 840 },
-            "El Meniaa": { desk: 720, home: 960 }
+            "Ouled Djellal": { desk: 700, home: 1000 },
+            "Béni Abbès": { desk: 1100, home: 1400 },
+            "In Salah": { desk: 1100, home: 1400 },
+            "In Guezzam": { desk: 1700, home: 2000 },
+            "Touggourt": { desk: 800, home: 1100 },
+            "Djanet": { desk: 1700, home: 2000 },
+            "El M'Ghair": { desk: 800, home: 1100 },
+            "El Meniaa": { desk: 1100, home: 1300 }
         };
 
         const price = 8500;
@@ -1145,6 +1132,10 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         const deliveryHomePriceLabel = document.getElementById('delivery-home-price');
         const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
         const wilayaSelect = document.getElementById('wilaya-select');
+        const deliveryModeTextInput = document.getElementById('delivery-mode-text');
+        const subtotalInputHidden = document.getElementById('subtotal-input');
+        const deliveryInputHidden = document.getElementById('delivery-input');
+        const totalInputHidden = document.getElementById('total-input');
 
         function formatCurrency(value) {
             return `DA ${value.toFixed(2)}`;
@@ -1168,12 +1159,18 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
             const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
             qtyInput.value = qty;
             const { desk, home } = getCurrentDeliveryPrices();
-            const selectedDelivery = document.querySelector('input[name="delivery"]:checked').value;
+            const selectedRadio = document.querySelector('input[name="delivery"]:checked');
+            const selectedDelivery = selectedRadio ? selectedRadio.value : 'desk';
             const deliveryCost = selectedDelivery === 'desk' ? desk : home;
 
             subtotal.textContent = formatCurrency(qty * price);
             livraisonPrice.textContent = formatCurrency(deliveryCost);
             total.textContent = formatCurrency(qty * price + deliveryCost);
+
+            subtotalInputHidden.value = (qty * price).toFixed(2);
+            deliveryInputHidden.value = deliveryCost.toFixed(2);
+            totalInputHidden.value = (qty * price + deliveryCost).toFixed(2);
+            deliveryModeTextInput.value = selectedRadio ? selectedRadio.dataset.label || '' : '';
         }
 
         document.getElementById('plus').addEventListener('click', () => {
@@ -1196,11 +1193,6 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
             updateTotal();
         });
 
-        // Boutons Commander
-        document.querySelector('.order-form .btn-commander').addEventListener('click', () => {
-            alert('Commande confirmée ! Notre équipe PowerGirl coordonne l’expédition World Express et te contacte très vite.');
-        });
-
         document.querySelector('.floating-order-btn').addEventListener('click', () => {
             document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
         });
@@ -1210,4 +1202,4 @@ Durables, confortables et faciles à utiliser, elles sont idéales pour tonifier
         updateTotal();
     </script>
 </body>
-                    </html>
+    </html>
